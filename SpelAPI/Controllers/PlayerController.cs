@@ -25,12 +25,16 @@ namespace SpelAPI.Controllers
         }
 
         [HttpPut("{id}")] 
-        public ActionResult<UpdatePlayerInformation> UpdatePlayerInformation(int id, PlayerInformation playerinformation)
+        public ActionResult<UpdatePlayerInformation> UpdatePlayerInformation(int id, PlayerInformation playerinformation, TaskSuccessfull taskSuccessfull)
         {
-            if (playerinformation == null)
-            {
-                return StatusCode(404);
-            }
-        } 
+            return Ok(new TaskSuccessfull() { message = "Player information updated successfully" });           
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult<DeletePlayerInformation> DeletePlayerInformation(int id, PlayerInformation playerinformation, TaskSuccessfull taskSuccessfull)
+        {
+            return Ok(new TaskSuccessfull() { message= "Player deleted successfully" });
+        }
+
     }
 }
